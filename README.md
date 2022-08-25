@@ -1,2 +1,2 @@
 # redux-toolkit
-how to setup Redux Toolkit in reactJs
+simple setup Redux Toolkit in reactJs

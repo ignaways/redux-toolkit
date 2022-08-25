@@ -1,27 +1,24 @@
-import './App.css';
-import {useSelector, useDispatch} from 'react-redux'
-import {decrement, increment} from './redux/features/counter'
+import "./App.css";
+import { useSelector, useDispatch } from "react-redux";
+import { decrement, increment, setNumber } from "./redux/features/counter";
 
 function App() {
-  const count = useSelector((state) => state.counter.count)
-  const dispatch = useDispatch()
+  const datas = useSelector((store) => store.counter);
+  const dispatch = useDispatch();
+
+  const setNumberHandler = (e) => {
+    const value = e.target.value;
+    dispatch(setNumber(+value));
+  };
+
   return (
     <div className="App">
-      <div>total : {count}</div>
+      <div>total : {datas.count}</div>
       <div>
-        <button
-          aria-label="Decrement value"
-          onClick={() => dispatch(decrement())}
-        >
-          Decrement
-        </button>
-        <button
-          aria-label="Increment value"
-          onClick={() => dispatch(increment())}
-        >
-          Increment
-        </button>
+        <button onClick={() => dispatch(decrement())}> Decrement </button>
+        <button onClick={() => dispatch(increment())}> Increment </button>
       </div>
+      <input onChange={setNumberHandler} type="text" value={datas.num} />
     </div>
   );
 }
