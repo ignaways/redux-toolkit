@@ -13,12 +13,22 @@ function App() {
 
   return (
     <div className="App">
-      <div>total : {datas.count}</div>
+      <h2> COUNT : {datas.count} </h2>
       <div>
-        <button onClick={() => dispatch(decrement())}> Decrement </button>
-        <button onClick={() => dispatch(increment())}> Increment </button>
+        <button
+          className="Button"
+          onClick={() => dispatch(decrement())}> Decrement </button>
+        <button
+          className="Button"
+          onClick={() => dispatch(increment())}> Increment </button>
       </div>
-      <input onChange={setNumberHandler} type="text" value={datas.num} />
+      <p>Count in multiples</p>
+      <input
+        className="Input"
+        onChange={setNumberHandler}
+        type="text"
+        value={datas.num}
+      />
     </div>
   );
 }
